@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class Practice {
         if (nums == null) return 0;
         int count = 0;
         for(int n : nums){
-            count += n % 2;
+            if (n % 2 != 0) count += n;
         }
         return count;
     }
@@ -32,7 +31,17 @@ public class Practice {
      * @throws NullPointerException if words is null
      */
     public static String shortestWord(Set<String> words) {
-        return null;
+        if(words == null) throw new NullPointerException("Words is null, ending task");
+        if(words.isEmpty()) throw new IllegalArgumentException("Words are empty, ending task");
+        Boolean flag = true;
+        String shortestWord = "";
+        for(String n : words)  {
+            if(n.length() < shortestWord.length() || flag == true || shortestWord.compareTo(n) > 0){
+                shortestWord = n;
+            }
+            if(flag) flag = false;
+        }
+        return shortestWord;
     }
 
     /**
