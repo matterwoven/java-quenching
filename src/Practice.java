@@ -110,7 +110,7 @@ public class Practice {
         while(current != null){
             theFrequencyMap.put(
                 current.data, 
-                theFrequencyMap.getOrDefault(current.data, 1)
+                theFrequencyMap.getOrDefault(current.data, 0) + 1
             );
             current = current.next;
         }
